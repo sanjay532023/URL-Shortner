@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<form method="POST" action="{% url 'display_long_url' %}">
+{% csrf_token %}
+    <div>
+<table border="1" align="center" id="customers">
+    <h1>Shorted URLS List </h1>
+            <tr>
+           <th>Long Url</th>
+           <th>Shor Url</th>
+                </tr>
+
+    {% for i in short.all %}
+    <tr>
+         <td>{{ i.long_url }}</td>
+         <td>{{ i.short_url }}</td>
+{% endfor %}
+
+     </tr>
+    <br>
+</table>
+        <br>
+        <br>
+        <hr>
+        <br>
+        </div>
+    <h3>Fetching list of short URLs to get Long Url </h3>
+    <div>
+       Enter Short Text: <input type="text" name="shoturl"/> <br><br>
+         <button type="submit" name="button">Fetch</button>
+
+    </div>
+    </form>
+
+</body>
+</html>

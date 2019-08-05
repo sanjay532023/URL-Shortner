@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LongURL</title>
+</head>
+<body>
+ <table>
+     <tr>
+         <h1>Displaying Log Url Of shorted Url</h1>
+            <th>Long Url</th>
+            </tr>
+            <tr>
+                {% for dt in data.all %}
+                 <td>{{ dt.long_url }}</td>
+                {% endfor %}
+             </tr>
+        </table>
+<form method="POST" action="{% url 'delete_shorted_url' %}">
+{% csrf_token %}
+<hr>
+    <div >
+        <hr>
+       Enter Short Text to Delete url: <input type="text" name="del_shorted_url"/>
+        <button type="submit" name="button">Delete</button>
+
+    </div>
+    </form>
+
+</body>
+</html>

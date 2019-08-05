@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shorturl</title>
+    <style>
+        .button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+}
+    </style>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" name="button" class="button">Save</button>
+
+</form>
+<h1>{{a}}</h1>
+<h4><a href="{% url 'details' %}">show previous shorted list</a></h4>
+</body>
+</html>
