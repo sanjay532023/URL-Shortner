@@ -6,7 +6,7 @@ from django.http import HttpResponse
 import win32console
 
 def Home(request, token):
-    long_url = short_urls.objects.filter(short_url=token)
+    long_url = short_urls.objects.filter(short_url=token)[0]
     return redirect(long_url.long_url)
 
 
